@@ -1,0 +1,62 @@
+node js-
+js runs inside web brpwser but node js allow js to run outside
+the web browser for eg- create server, read files and build
+backend applications
+js- language to write the code
+node js- runtime that execute js outside browser
+express- node js framework that make server creation and routing
+easier.
+
+in terminal 
+node -v
+npm -v (node package manager, it install & manage package eg- express)
+npm init -y  (create package.json file, stores info, script and dependenices)
+create app.js
+run node app.js
+
+basic server.js http server
+const http=require("http") this import built in http module, use to create http server
+http.createServer((req,res)=>{...}) creates the server. req,res is callback function that
+handle incoming request, req- contain info about client req.
+                         res- allow to construct and send response to client
+
+res.writehead(200,{..}) set code success and declare res content type is plain text.
+              more-text/plain, text/html, application/json
+res.end("..") send response body and end the response
+
+server.listen(3000,...) it tells to listen incoming connection on port 3000
+ 
+handle req-  if(req.url==="/about" && req.method==="GET"){
+    res.writeHead(200,{"content-type":"text/plain"});
+        res.end("about page");
+
+
+GET- retrieve data (view list of users)
+POST- submit or create data(register a user)
+PUT-replace existing resource (update complete user record)
+PATCH- partially update data (change only user surname)
+DELETE- data data(remove user)
+
+install nodemon- automatically restart server whenever it detects changes in your 
+source code.
+
+http://localhost:3000/product?pid=25
+path=product query parameter=pid query parameter value=25
+url parse(req.url,true) it parse the url into object,true tells legacy url parser
+                        to convert the query string into object
+
+const path=urlPath.pathName
+extracts the pathname here path is product
+
+if(path.startsWith==="/product/" && req.method==="GET")
+1- check if pathname starts with product and check if method is GET
+product id using path parameter
+const pid=path.split("/")[2]
+
+product id using query parameter
+if(path.startsWith==="/product" && req.method==="GET")
+const pid=urlPath.query.pid
+
+
+express.js- making server dev easier
+
